@@ -2,8 +2,8 @@ project:
   type: book
 
 book:
-  title: "Insurance-Pricing-With-GLMs"
-  author: "Norah Jones"
+  title: "Insurance Pricing With GLMs"
+  author: "Alan Chalk"
   date: "1/22/2025"
   chapters:
     - index.qmd
@@ -13,6 +13,9 @@ book:
 
 bibliography: references.bib
 
+website:
+  repo-url: https://github.com/alanchalk/Insurance-Pricing-With-GLM
+  
 format:
   html:
     theme:
