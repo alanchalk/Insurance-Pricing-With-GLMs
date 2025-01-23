@@ -8,10 +8,11 @@ book:
   date: "1/22/2025"
   chapters:
     - index.qmd
-    - intro.qmd
-    - chapter3.qmd
+    - 01_Intro.qmd
+    - 02_Ch2_Intro.qmd
     - summary.qmd
-    - references.qmd
+#    - references.qmd
+# uncomment when we have reference in the document
 
 bibliography: references.bib
 
