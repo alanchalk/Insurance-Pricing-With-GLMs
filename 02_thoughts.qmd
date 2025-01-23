@@ -1,0 +1,33 @@
+---
+title: "thoughts"
+---
+
+Naming Conventions for Features
+Importance of consistent naming conventions.
+Guidelines for feature names:
+Use clear and descriptive names.
+Avoid spaces, special characters, or overly long names.
+Use prefixes or suffixes to indicate feature type (e.g., num_ for numeric, cat_ for categorical).
+Code examples for renaming features systematically in R or Python.
+2. Character and Numeric Features
+Handling different data types:
+Converting character features to factors or strings.
+Ensuring numeric features are stored in the correct format.
+Identifying and correcting anomalies in data types.
+Example code to inspect and standardize feature data types.
+3. Feature Screening
+The importance of selecting relevant features.
+Methods for feature screening:
+Univariate analysis (e.g., variance thresholds, correlation).
+Multivariate techniques (e.g., recursive feature elimination, LASSO).
+Code examples for applying these techniques.
+4. Missing Values and General Sense-Checking
+Identifying missing values and patterns in the data.
+Strategies for handling missing values:
+Imputation techniques (mean, median, mode, or model-based).
+Dropping rows or columns with excessive missingness.
+General quality checks:
+Outlier detection.
+Logical consistency of values (e.g., negative ages or invalid dates).
+Example code for each approach
+---
