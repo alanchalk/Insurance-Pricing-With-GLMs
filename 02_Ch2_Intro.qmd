@@ -1,8 +1,4 @@
----
-title: "Data preparation"
----
-
-\# Introduction
+# Data preparation
 
 It is very tempting once a dataset is available, to jump right in to the modelling stage - because that is interesting and data preparation is boring. Or because you are being chased by management for a new and improved rating plan which they in turn have promised their boss to have ready by yesterday. In this regard they will often quote the 80-20 rule to you. Meaning that you can get 80% of the benefit of a data cleansing exercise by just 20% of the effort. (Or they might use the phrase "perfect is the enemy of good".) This magical rule means that if you need a month to do data cleansing, your boss can reasonably expect it of you in just under a week, and that whatever has been left undone will not matter to the final result. There is no simple answer to such time pressures. But realistic planning at the start of a project can help decide what should and should not be attempted, given the time available.
 
