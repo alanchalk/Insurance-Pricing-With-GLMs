@@ -2,3 +2,10 @@
 
 
 Dear Reader,
+
+How can we fit good GLMs?  Can we rely mostly on the data to choose which features to select and to fit them accurately, with manual smoothing left as close to the end of the process as possibe?
+
+Some techniques to help us achieve this are discussed in the CAS monograph: From GLMs to Comprehensive Insurance Pricing: Techniques and Challenges.  We include here some code to help the reader try out those techniques.
+
+Alan Chalk
+May 2025

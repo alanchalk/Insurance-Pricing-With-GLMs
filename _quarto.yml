@@ -9,7 +9,8 @@ book:
   chapters:
     - index.qmd
     - 01_Intro.qmd
-    - 02_Ch2_Intro.qmd
+    - 02_ch2_Intro.qmd
+    - 02_ch9_Intro.qmd
     - summary.qmd
 #    - references.qmd
 # uncomment when we have reference in the document

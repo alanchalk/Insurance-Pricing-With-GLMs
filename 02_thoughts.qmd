@@ -9,23 +9,32 @@ Use clear and descriptive names.
 Avoid spaces, special characters, or overly long names.
 Use prefixes or suffixes to indicate feature type (e.g., num_ for numeric, cat_ for categorical).
 Code examples for renaming features systematically in R or Python.
+
 2. Character and Numeric Features
 Handling different data types:
 Converting character features to factors or strings.
 Ensuring numeric features are stored in the correct format.
 Identifying and correcting anomalies in data types.
 Example code to inspect and standardize feature data types.
+
 3. Feature Screening
 The importance of selecting relevant features.
 Methods for feature screening:
 Univariate analysis (e.g., variance thresholds, correlation).
 Multivariate techniques (e.g., recursive feature elimination, LASSO).
 Code examples for applying these techniques.
-4. Missing Values and General Sense-Checking
+
+4. Missing Values
+When missing - during analysis or at time of quote
+need consistency - if during analysis we replace with mode but at time of quote there is a line in the table for missing
+example - enrichment goes down - assume load at time of quote since in highly competitive market will quickly such in high risks - then very likely that mean imputation is not going to be good
 Identifying missing values and patterns in the data.
 Strategies for handling missing values:
 Imputation techniques (mean, median, mode, or model-based).
 Dropping rows or columns with excessive missingness.
+
+
+5 General Sense-Checking
 General quality checks:
 Outlier detection.
 Logical consistency of values (e.g., negative ages or invalid dates).
