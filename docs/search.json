@@ -14,7 +14,7 @@
     "href": "01_Intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "Dear Reader,\nCan we fit good GLMs?\nCan we rely mostly on the data to choose which features to select?\nCan we fit those features accurately, with manual smoothing left as close to the end of the process as possible?\nSome techniques to start us on this journey are discussed in the CAS monograph: From GLMs to Comprehensive Insurance Pricing: Techniques and Challenges.\nWe include here R code to help the reader try out those techniques.\nAlan Chalk May 2025",
+    "text": "Dear Reader,\nCan we fit good GLMs?\nCan we use the data to choose which features to select?\nCan we fit those features accurately, with manual smoothing left as close to the end of the process as possible?\nSome techniques to start us on this journey are discussed in the CAS monograph: From GLMs to Comprehensive Insurance Pricing: Techniques and Challenges.\nWe include here R code to help the reader try out those techniques.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
