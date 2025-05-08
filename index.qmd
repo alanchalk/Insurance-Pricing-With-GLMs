@@ -1,9 +1,3 @@
-# Preface {.unnumbered}
+# Acknowledgements
 
-This is a Quarto book.
-
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
-
-```{r}
-1 + 1
-```
+To Serrban Dragne: You've taught me so much about R, Python, SQL and ML in general.  You are a constant reminder to me about how little I know.  Thanks.  I think.
