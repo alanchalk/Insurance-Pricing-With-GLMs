@@ -1,11 +1,3 @@
----
-title: "Acknowledgements"
-numbered: false
-execute: 
-  echo: false
-  eval: false
----
-
 # Acknowledgements {.unnumbered}
 
 To Serban Dragne: 
