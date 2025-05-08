@@ -1,3 +1,11 @@
-# Acknowledgements
+# Acknowledgement
 
-To Serrban Dragne: You've taught me so much about R, Python, SQL and ML in general.  You are a constant reminder to me about how little I know.  Thanks.  I think.
+To Serban Dragne: 
+
+You've taught me so much about R, Python, SQL and ML in general.
+
+You are a constant reminder to me about how little I know.
+
+Thanks.  
+
+I think.
