@@ -9,7 +9,7 @@ book:
   chapters:
     - index.qmd
     - 01_Intro.qmd
-    - 02_ch2_Intro.qmd
+    - 02_data_preparation.qmd
     - 02_ch9_Intro.qmd
     - summary.qmd
 #    - references.qmd
