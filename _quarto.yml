@@ -10,7 +10,7 @@ book:
     - index.qmd
     - 01_Intro.qmd
     - 02_data_preparation.qmd
-    - 02_ch9_Intro.qmd
+    - 09_interactions.qmd
     - summary.qmd
 #    - references.qmd
 # uncomment when we have reference in the document
