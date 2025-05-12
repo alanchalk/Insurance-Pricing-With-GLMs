@@ -1,0 +1,109 @@
+# Getting started
+
+Before you start any programming task there are some things you need to deal with.
+
+## Directory structure
+
+In whichever directory your project resides, decide upfront what your directory structure could be.  (The other approach - called the mayhem approach - is to allow each person in your team to add randomly named directories as and when they think they need them.)
+
+We always have the following subdirectories (capitalized exactly as given):
+
+ - RawData
+ - IntermediateData
+ - RCode
+ - RData
+ - ROutput
+
+If we are also using SAS or Python we will have in addition:
+
+ - PCode
+ - PData
+ - SASCode
+ - SASData
+ - etc
+ 
+ The content of what needs to go in each of the above directories, is hopefully obvious.  If not, you will see what goes where as we proceed with our analysis here.  Ofcourse the above approach is far from the only way. In Approaching (almost) any machine learning problem [@thakur2020approaching], Thakur uses:
+ 
+ - input (for raw data)
+ - src (for Python code)
+ - models
+ - notebooks
+ - README.md
+ - LICENSE
+ 
+The details don't matter (much).  The main point is to figure something out before you start and then get everyone to stick to it.
+
+
+## Sequential naming of program files
+
+Imagine you are reviewing code created by a team member.  You know where to go, the RCode directory.  In there you find various files
+
+ - read_data.R
+ - adjust_data.R
+ - manipulate_data.R
+ - correct_data.R
+ - and so on.
+ 
+ 
+You want to replicate the process by running the files in order. Which order should you run the files in?  Would it not have been much easier if you were faced with:
+
+ - 01a_read_data.R
+ - 02c_adjust_data.R
+ - 02a_manipulate_data.R
+ - 02b_correct_data.R
+ - and so on.
+
+In general it seems like a good idea to give each file a prefix which indicates where it come in the overall progamming pipeline.  
+
+We have found in pretty much every project, that we need to do at least four things, read the raw data, manipulate it, carry out some initial data exploration, do the modelling.  We therefore try to stick to:
+
+- 01a/b/c etc for reading raw data
+- 02/a/b/c etc for data manipulation
+- 03/a/b/c etc for data exploration
+- 04/a/b/c etc for fitting (training) models.
+
+Once again, exactly how you do this, is not important.  Only that you do it.
+
+
+## Naming data files
+
+You are busy reviewing a project, and you come across a file `dt_train.RData`.  You want to see how it was created and so you go to the program which created it.  Which is...?  You have no idea.  So you start searching through each .R file for the code which might have created it.  Something like `save(dt_train, file = "dt_train.RData")`.  You might get lucky, or you might find that this code appears in a few places, each time overwriting the previous.  Imagine instead it was labelled `02a_dt_train.RData`, when the prefix tells you which program it was created in. That's what we do.  You might want to do something similar.
+
+
+## Naming variables
+
+Some languages (e.g. SAS) do not differentiate between lower and upper case.  Some (e.g. R and Python) do.  Coders in SAS can be inconsistent and get away with it.  When two similar datasets are exported fom SAS to R, a program that works with one, will not work with the other if the capitalisation is inconsistent.
+
+Consider the variable name for policyholder age.  You could use policyholderAge (camel case), PolicyholderAge (Pascal case), policyholder_age (snake case).
+
+Consider a data.table (in R) of data to be used for training.  You could call it ``train`` or ``dt_train`` or ``train_dt``.  The middle of these (``dt_train``) leads us to the idea that we might want the variable names of our objects to start with something which tells us what they are.
+
+Sometimes we might want to *top and tail* a feature.  Imagine that we have a small number of policy holders who are older than 99.  We create a new version which is never less than 17 and never more than 99 -  ``min(99, max(17, policyholder_age))``.  Should we simply replace policyholder_age with the new version, or should we give in a new name.  If the later, what should our new name be?  (We use ``policyholder_age_tt``).
+
+Sometimes we replace a feature with its rank.  Or its percentile. You can probably now guess that we use ``policyholder_age_r`` or ``policyholder_age_p``.
+
+We often come across abreviations which are capitalised when used in a sentence (NCB for No Claims Bonus or VRN for Vehicle Registration Number).  Should we capitalize the variable names for these?
+
+
+
+## Version control
+
+Talking about version control is beyond the scope of our discussion here.  But, unless you are on your home PC just to learn (and maybe even then), then -  obviously - do it.
+
+
+## Managing packages
+
+In both R and Python, we load packages to give us access to useful code written by someone else.  Packages allow us to easily read and manipulate data, explore data and carry out supervised learning tasks (such as fitting GLMs or gradient boosting models).  
+
+In Python it can be quite difficult to work with packages without using some kind of package management system.  That is because often only specific  versions of two different packages are compatible with each other.  For example ``pandas`` version 2.2 is not compatible with ``pandas`` 1.22.3 and prior  [@pandas_install].
+
+From practical experience, it is easier to work in R without using a package management system.  
+
+
+
+
+
+
+
+
+

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Summary – Insurance Pricing With GLMs</title>
+<title>2&nbsp; Getting started – Insurance Pricing With GLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./09_interactions.html" rel="prev">
+<link href="./03_data_preparation.html" rel="next">
+<link href="./01_preface.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./summary.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summary</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_getting_started.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting started</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -120,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_getting_started.html" class="sidebar-item-text sidebar-link">
+  <a href="./02_getting_started.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting started</span></span></a>
   </div>
 </li>
@@ -138,7 +158,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link active">
+  <a href="./summary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
@@ -153,15 +173,26 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link active" data-scroll-target="#directory-structure"><span class="header-section-number">2.1</span> Directory structure</a></li>
+  <li><a href="#sequential-naming-of-program-files" id="toc-sequential-naming-of-program-files" class="nav-link" data-scroll-target="#sequential-naming-of-program-files"><span class="header-section-number">2.2</span> Sequential naming of program files</a></li>
+  <li><a href="#naming-data-files" id="toc-naming-data-files" class="nav-link" data-scroll-target="#naming-data-files"><span class="header-section-number">2.3</span> Naming data files</a></li>
+  <li><a href="#naming-variables" id="toc-naming-variables" class="nav-link" data-scroll-target="#naming-variables"><span class="header-section-number">2.4</span> Naming variables</a></li>
+  <li><a href="#version-control" id="toc-version-control" class="nav-link" data-scroll-target="#version-control"><span class="header-section-number">2.5</span> Version control</a></li>
+  <li><a href="#managing-packages" id="toc-managing-packages" class="nav-link" data-scroll-target="#managing-packages"><span class="header-section-number">2.6</span> Managing packages</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summary</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting started</span></h1>
 </div>
 
 
@@ -178,8 +209,98 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Before you start any programming task there are some things you need to deal with.</p>
+<section id="directory-structure" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="directory-structure"><span class="header-section-number">2.1</span> Directory structure</h2>
+<p>In whichever directory your project resides, decide upfront what your directory structure could be. (The other approach - called the mayhem approach - is to allow each person in your team to add randomly named directories as and when they think they need them.)</p>
+<p>We always have the following subdirectories (capitalized exactly as given):</p>
+<ul>
+<li>RawData</li>
+<li>IntermediateData</li>
+<li>RCode</li>
+<li>RData</li>
+<li>ROutput</li>
+</ul>
+<p>If we are also using SAS or Python we will have in addition:</p>
+<ul>
+<li>PCode</li>
+<li>PData</li>
+<li>SASCode</li>
+<li>SASData</li>
+<li>etc</li>
+</ul>
+<p>The content of what needs to go in each of the above directories, is hopefully obvious. If not, you will see what goes where as we proceed with our analysis here. Ofcourse the above approach is far from the only way. In Approaching (almost) any machine learning problem <span class="citation" data-cites="thakur2020approaching">(<a href="references.html#ref-thakur2020approaching" role="doc-biblioref">Thakur 2020</a>)</span>, Thakur uses:</p>
+<ul>
+<li>input (for raw data)</li>
+<li>src (for Python code)</li>
+<li>models</li>
+<li>notebooks</li>
+<li>README.md</li>
+<li>LICENSE</li>
+</ul>
+<p>The details don’t matter (much). The main point is to figure something out before you start and then get everyone to stick to it.</p>
+</section>
+<section id="sequential-naming-of-program-files" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sequential-naming-of-program-files"><span class="header-section-number">2.2</span> Sequential naming of program files</h2>
+<p>Imagine you are reviewing code created by a team member. You know where to go, the RCode directory. In there you find various files</p>
+<ul>
+<li>read_data.R</li>
+<li>adjust_data.R</li>
+<li>manipulate_data.R</li>
+<li>correct_data.R</li>
+<li>and so on.</li>
+</ul>
+<p>You want to replicate the process by running the files in order. Which order should you run the files in? Would it not have been much easier if you were faced with:</p>
+<ul>
+<li>01a_read_data.R</li>
+<li>02c_adjust_data.R</li>
+<li>02a_manipulate_data.R</li>
+<li>02b_correct_data.R</li>
+<li>and so on.</li>
+</ul>
+<p>In general it seems like a good idea to give each file a prefix which indicates where it come in the overall progamming pipeline.</p>
+<p>We have found in pretty much every project, that we need to do at least four things, read the raw data, manipulate it, carry out some initial data exploration, do the modelling. We therefore try to stick to:</p>
+<ul>
+<li>01a/b/c etc for reading raw data</li>
+<li>02/a/b/c etc for data manipulation</li>
+<li>03/a/b/c etc for data exploration</li>
+<li>04/a/b/c etc for fitting (training) models.</li>
+</ul>
+<p>Once again, exactly how you do this, is not important. Only that you do it.</p>
+</section>
+<section id="naming-data-files" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="naming-data-files"><span class="header-section-number">2.3</span> Naming data files</h2>
+<p>You are busy reviewing a project, and you come across a file <code>dt_train.RData</code>. You want to see how it was created and so you go to the program which created it. Which is…? You have no idea. So you start searching through each .R file for the code which might have created it. Something like <code>save(dt_train, file = "dt_train.RData")</code>. You might get lucky, or you might find that this code appears in a few places, each time overwriting the previous. Imagine instead it was labelled <code>02a_dt_train.RData</code>, when the prefix tells you which program it was created in. That’s what we do. You might want to do something similar.</p>
+</section>
+<section id="naming-variables" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="naming-variables"><span class="header-section-number">2.4</span> Naming variables</h2>
+<p>Some languages (e.g.&nbsp;SAS) do not differentiate between lower and upper case. Some (e.g.&nbsp;R and Python) do. Coders in SAS can be inconsistent and get away with it. When two similar datasets are exported fom SAS to R, a program that works with one, will not work with the other if the capitalisation is inconsistent.</p>
+<p>Consider the variable name for policyholder age. You could use policyholderAge (camel case), PolicyholderAge (Pascal case), policyholder_age (snake case).</p>
+<p>Consider a data.table (in R) of data to be used for training. You could call it <code>train</code> or <code>dt_train</code> or <code>train_dt</code>. The middle of these (<code>dt_train</code>) leads us to the idea that we might want the variable names of our objects to start with something which tells us what they are.</p>
+<p>Sometimes we might want to <em>top and tail</em> a feature. Imagine that we have a small number of policy holders who are older than 99. We create a new version which is never less than 17 and never more than 99 - <code>min(99, max(17, policyholder_age))</code>. Should we simply replace policyholder_age with the new version, or should we give in a new name. If the later, what should our new name be? (We use <code>policyholder_age_tt</code>).</p>
+<p>Sometimes we replace a feature with its rank. Or its percentile. You can probably now guess that we use <code>policyholder_age_r</code> or <code>policyholder_age_p</code>.</p>
+<p>We often come across abreviations which are capitalised when used in a sentence (NCB for No Claims Bonus or VRN for Vehicle Registration Number). Should we capitalize the variable names for these?</p>
+</section>
+<section id="version-control" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="version-control"><span class="header-section-number">2.5</span> Version control</h2>
+<p>Talking about version control is beyond the scope of our discussion here. But, unless you are on your home PC just to learn (and maybe even then), then - obviously - do it.</p>
+</section>
+<section id="managing-packages" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="managing-packages"><span class="header-section-number">2.6</span> Managing packages</h2>
+<p>In both R and Python, we load packages to give us access to useful code written by someone else. Packages allow us to easily read and manipulate data, explore data and carry out supervised learning tasks (such as fitting GLMs or gradient boosting models).</p>
+<p>In Python it can be quite difficult to work with packages without using some kind of package management system. That is because often only specific versions of two different packages are compatible with each other. For example <code>pandas</code> version 2.2 is not compatible with <code>pandas</code> 1.22.3 and prior <span class="citation" data-cites="pandas_install">(<a href="references.html#ref-pandas_install" role="doc-biblioref">pandas_installation_dependecies 2025</a>)</span>.</p>
+<p>From practical experience, it is easier to work in R without using a package management system.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-pandas_install" class="csl-entry" role="listitem">
+pandas_installation_dependecies. 2025. <span>“Installation — Pandas Documentation.”</span> <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html">https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html</a>.
+</div>
+<div id="ref-thakur2020approaching" class="csl-entry" role="listitem">
+Thakur, Abhishek. 2020. <em>Approaching (Almost) Any Machine Learning Problem</em>. Abhishek Thakur.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -601,13 +722,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./09_interactions.html" class="pagination-link" aria-label="Finding and fitting interactions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding and fitting interactions</span></span>
+      <a href="./01_preface.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03_data_preparation.html" class="pagination-link" aria-label="Data preparation">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data preparation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

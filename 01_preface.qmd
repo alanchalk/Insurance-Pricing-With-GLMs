@@ -1,0 +1,23 @@
+# Preface
+
+Dear Reader,
+
+Can we fit good GLMs?
+
+Can we use the data to choose which features to select?
+
+Can we fit those features accurately, with manual smoothing left as close to the end of the process as possible?
+
+Can we automatically find and fit interactions?
+
+Some techniques to start us on this journey are discussed in the CAS monograph: From GLMs to Comprehensive Insurance Pricing: Techniques and Challenges.
+
+You might want to have a go yourself by running R code. This could be a for a few reasons:
+
+-   Your or your company prefer to build code yourself rather than buy a propriety software. (For full information on the *build vs buy* debate, see elsewhere.)
+-   You have software that does this already, but you want to make sure you really understand how it works. Often the best way to understand something is to build and run it yourself.
+-   You are a glutton for punishment.
+
+Whatever you reason for being here, our aim is to provide you with enough information and R code to to build pretty decent GLMs and to understand what you are doing along the way.
+
+Happy coding!

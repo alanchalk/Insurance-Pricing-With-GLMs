@@ -10,33 +10,113 @@
     ]
   },
   {
-    "objectID": "01_Intro.html",
-    "href": "01_Intro.html",
-    "title": "1  Introduction",
+    "objectID": "01_preface.html",
+    "href": "01_preface.html",
+    "title": "1  Preface",
     "section": "",
-    "text": "Dear Reader,\nCan we fit good GLMs?\nCan we use the data to choose which features to select?\nCan we fit those features accurately, with manual smoothing left as close to the end of the process as possible?\nSome techniques to start us on this journey are discussed in the CAS monograph: From GLMs to Comprehensive Insurance Pricing: Techniques and Challenges.\nWe include here R code to help the reader try out those techniques.",
+    "text": "Dear Reader,\nCan we fit good GLMs?\nCan we use the data to choose which features to select?\nCan we fit those features accurately, with manual smoothing left as close to the end of the process as possible?\nCan we automatically find and fit interactions?\nSome techniques to start us on this journey are discussed in the CAS monograph: From GLMs to Comprehensive Insurance Pricing: Techniques and Challenges.\nYou might want to have a go yourself by running R code. This could be a for a few reasons:\n\nYour or your company prefer to build code yourself rather than buy a propriety software. (For full information on the build vs buy debate, see elsewhere.)\nYou have software that does this already, but you want to make sure you really understand how it works. Often the best way to understand something is to build and run it yourself.\nYou are a glutton for punishment.\n\nWhatever you reason for being here, our aim is to provide you with enough information and R code to to build pretty decent GLMs and to understand what you are doing along the way.\nHappy coding!",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
     ]
   },
   {
-    "objectID": "02_data_preparation.html",
-    "href": "02_data_preparation.html",
-    "title": "2  Data preparation",
+    "objectID": "02_getting_started.html",
+    "href": "02_getting_started.html",
+    "title": "2  Getting started",
     "section": "",
-    "text": "It is very tempting once a dataset is available, to jump right in to the modelling stage - because that is interesting and data preparation is boring. Or because you are being chased by management for a new and improved rating plan which they in turn have promised their boss to have ready by yesterday. In this regard they will often quote the 80-20 rule to you. Meaning that you can get 80% of the benefit of a data cleansing exercise by just 20% of the effort. (Or they might use the phrase “perfect is the enemy of good”.) This magical rule means that if you need a month to do data cleansing, your boss can reasonably expect it of you in just under a week, and that whatever has been left undone will not matter to the final result. There is no simple answer to such time pressures.\nA typical outcome of poor data preparation is getting to the end of a few days (or months) of modelling and then realizing that you included a feature which should not be included. Or you treated a feature as numeric which should been treated as a character / factor. An example of the latter is the number of doors of a vehicle (in auto insurance). Treating this as a numeric feature will often lead to the assumption that the risk of accident decreases (or increases) linearly as the number of doors increases. You probably did not want to assume this. The net result of such errors can vary from some minor changes needing to be made post-hoc, to having to redo the whole exercise.\nThis chapter will discuss and provide code examples for various aspects of data preparation, including:\n\nNaming conventions for our features\nCharacter and numeric features\nFeature screening\nMissing values and general sense-checking",
+    "text": "2.1 Directory structure\nBefore you start any programming task there are some things you need to deal with.\nIn whichever directory your project resides, decide upfront what your directory structure could be. (The other approach - called the mayhem approach - is to allow each person in your team to add randomly named directories as and when they think they need them.)\nWe always have the following subdirectories (capitalized exactly as given):\nIf we are also using SAS or Python we will have in addition:\nThe content of what needs to go in each of the above directories, is hopefully obvious. If not, you will see what goes where as we proceed with our analysis here. Ofcourse the above approach is far from the only way. In Approaching (almost) any machine learning problem (Thakur 2020), Thakur uses:\nThe details don’t matter (much). The main point is to figure something out before you start and then get everyone to stick to it.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data preparation</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "02_getting_started.html#directory-structure",
+    "href": "02_getting_started.html#directory-structure",
+    "title": "2  Getting started",
+    "section": "",
+    "text": "RawData\nIntermediateData\nRCode\nRData\nROutput\n\n\n\nPCode\nPData\nSASCode\nSASData\netc\n\n\n\ninput (for raw data)\nsrc (for Python code)\nmodels\nnotebooks\nREADME.md\nLICENSE",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "02_getting_started.html#sequential-naming-of-program-files",
+    "href": "02_getting_started.html#sequential-naming-of-program-files",
+    "title": "2  Getting started",
+    "section": "2.2 Sequential naming of program files",
+    "text": "2.2 Sequential naming of program files\nImagine you are reviewing code created by a team member. You know where to go, the RCode directory. In there you find various files\n\nread_data.R\nadjust_data.R\nmanipulate_data.R\ncorrect_data.R\nand so on.\n\nYou want to replicate the process by running the files in order. Which order should you run the files in? Would it not have been much easier if you were faced with:\n\n01a_read_data.R\n02c_adjust_data.R\n02a_manipulate_data.R\n02b_correct_data.R\nand so on.\n\nIn general it seems like a good idea to give each file a prefix which indicates where it come in the overall progamming pipeline.\nWe have found in pretty much every project, that we need to do at least four things, read the raw data, manipulate it, carry out some initial data exploration, do the modelling. We therefore try to stick to:\n\n01a/b/c etc for reading raw data\n02/a/b/c etc for data manipulation\n03/a/b/c etc for data exploration\n04/a/b/c etc for fitting (training) models.\n\nOnce again, exactly how you do this, is not important. Only that you do it.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "02_getting_started.html#naming-data-files",
+    "href": "02_getting_started.html#naming-data-files",
+    "title": "2  Getting started",
+    "section": "2.3 Naming data files",
+    "text": "2.3 Naming data files\nYou are busy reviewing a project, and you come across a file dt_train.RData. You want to see how it was created and so you go to the program which created it. Which is…? You have no idea. So you start searching through each .R file for the code which might have created it. Something like save(dt_train, file = \"dt_train.RData\"). You might get lucky, or you might find that this code appears in a few places, each time overwriting the previous. Imagine instead it was labelled 02a_dt_train.RData, when the prefix tells you which program it was created in. That’s what we do. You might want to do something similar.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "02_getting_started.html#naming-variables",
+    "href": "02_getting_started.html#naming-variables",
+    "title": "2  Getting started",
+    "section": "2.4 Naming variables",
+    "text": "2.4 Naming variables\nSome languages (e.g. SAS) do not differentiate between lower and upper case. Some (e.g. R and Python) do. Coders in SAS can be inconsistent and get away with it. When two similar datasets are exported fom SAS to R, a program that works with one, will not work with the other if the capitalisation is inconsistent.\nConsider the variable name for policyholder age. You could use policyholderAge (camel case), PolicyholderAge (Pascal case), policyholder_age (snake case).\nConsider a data.table (in R) of data to be used for training. You could call it train or dt_train or train_dt. The middle of these (dt_train) leads us to the idea that we might want the variable names of our objects to start with something which tells us what they are.\nSometimes we might want to top and tail a feature. Imagine that we have a small number of policy holders who are older than 99. We create a new version which is never less than 17 and never more than 99 - min(99, max(17, policyholder_age)). Should we simply replace policyholder_age with the new version, or should we give in a new name. If the later, what should our new name be? (We use policyholder_age_tt).\nSometimes we replace a feature with its rank. Or its percentile. You can probably now guess that we use policyholder_age_r or policyholder_age_p.\nWe often come across abreviations which are capitalised when used in a sentence (NCB for No Claims Bonus or VRN for Vehicle Registration Number). Should we capitalize the variable names for these?",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "02_getting_started.html#version-control",
+    "href": "02_getting_started.html#version-control",
+    "title": "2  Getting started",
+    "section": "2.5 Version control",
+    "text": "2.5 Version control\nTalking about version control is beyond the scope of our discussion here. But, unless you are on your home PC just to learn (and maybe even then), then - obviously - do it.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "02_getting_started.html#managing-packages",
+    "href": "02_getting_started.html#managing-packages",
+    "title": "2  Getting started",
+    "section": "2.6 Managing packages",
+    "text": "2.6 Managing packages\nIn both R and Python, we load packages to give us access to useful code written by someone else. Packages allow us to easily read and manipulate data, explore data and carry out supervised learning tasks (such as fitting GLMs or gradient boosting models).\nIn Python it can be quite difficult to work with packages without using some kind of package management system. That is because often only specific versions of two different packages are compatible with each other. For example pandas version 2.2 is not compatible with pandas 1.22.3 and prior (pandas_installation_dependecies 2025).\nFrom practical experience, it is easier to work in R without using a package management system.\n\n\n\n\npandas_installation_dependecies. 2025. “Installation — Pandas Documentation.” https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html.\n\n\nThakur, Abhishek. 2020. Approaching (Almost) Any Machine Learning Problem. Abhishek Thakur.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Getting started</span>"
+    ]
+  },
+  {
+    "objectID": "03_data_preparation.html",
+    "href": "03_data_preparation.html",
+    "title": "3  Data preparation",
+    "section": "",
+    "text": "It is very tempting once a dataset is available, to jump right in to the modelling stage - because that is interesting and data preparation is boring. Or because you are being chased by management for a new and improved rating plan which they in turn have promised their boss to have ready by yesterday. In this regard they will often quote the 80-20 rule to you. Meaning that you can get 80% of the benefit of a data cleansing exercise by just 20% of the effort. (Or they might use the phrase “perfect is the enemy of good”.) This magical rule means that if you need a month to do data cleansing, your boss can reasonably expect it of you in just under a week, and that whatever has been left undone will not matter to the final result.\nA typical outcome of poor data preparation is getting to the end of a few days (or months) of modelling and then realizing that you included a feature which should not be included. Or you treated a feature as numeric which should been treated as a character / factor. An example of the latter is the number of doors of a vehicle (in auto insurance). Treating this as a numeric feature will often lead to the assumption that the risk of accident decreases (or increases) linearly as the number of doors increases. You probably did not want to assume this. The net result of such errors can vary from some minor changes needing to be made post-hoc, to having to redo the whole exercise.\nThis chapter will discuss and provide code examples for various aspects of data preparation, including:\n\nNaming conventions for our features\nCharacter and numeric features\nFeature screening\nMissing values and general sense-checking",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data preparation</span>"
     ]
   },
   {
     "objectID": "09_interactions.html",
     "href": "09_interactions.html",
-    "title": "3  Finding and fitting interactions",
+    "title": "4  Finding and fitting interactions",
     "section": "",
     "text": "When we train decision trees, random forests, or gradient boosting trees, or neural networks, they automatically find interactions for us (even if it is not totally straightforward to actually find out what they are). In fact, some time back, a certain type of decision tree was known as CHAID - a CHi-squared Automatic Interaction Detector.\nWhen we train GLMs they do not automatically find interactions for us.\nThus, a price for the transparency of the GLM is that we need to find (and code up) interactions (if there are any).\nThe approach we take here is to first find and propose candidate interaction pairs and then, for each candidate, to code it up as a feature for our GLM and finally to fit it. Interactions which improve CV performance and seem sensible for the domain we are working in, are likely to end up in our final model.\n\nDomain knowledge. policyjolder age x vehicle accelaration (0-60)\nLearning from black-box models\nMARS",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Finding and fitting interactions</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Finding and fitting interactions</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "pandas_installation_dependecies. 2025. “Installation — Pandas\nDocumentation.” https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html.\n\n\nThakur, Abhishek. 2020. Approaching (Almost) Any Machine Learning\nProblem. Abhishek Thakur.",
+    "crumbs": [
+      "References"
     ]
   }
 ]
