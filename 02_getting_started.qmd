@@ -86,7 +86,7 @@ Sometimes we replace a feature with its rank.  Or its percentile. You can probab
 
 We often come across abreviations which are capitalised when used in a sentence (NCB for No Claims Bonus or VRN for Vehicle Registration Number).  Should we capitalize the variable names for these?
 
-When we deal with missing values we often guess what the missing value should be (impute).  Then, we create an indicator, which takes the value of 1 wherever we have imputed a value in place of missing data.  If ``policyholder_age`` is sometimes missing and we decide to use imputation to replace missing values and to use a missing value indicator, we need a name for the indicator.  We use ``policyholder_age_m``.
+When we deal with missing values we often guess what the missing value should be. (This is known as imputation.)  Then, we create an indicator, which takes the value of 1 wherever we have imputed a value in place of missing data.  If ``policyholder_age`` is sometimes missing and we decide to use imputation to replace missing values and to use a missing value indicator, we need a name for the indicator.  We use ``policyholder_age_m``.
 
 Consider three types of claim (accidental damage (ad), fire or theft (ft) and personal injury (pi)) and two items of information about these claims, their number (num) and their incurred value (inc).  Our variable names can be; num_ad, num_ft, num_pi, inc_ad, ind_ft and inc_pi. Alternatively we can choose, ad_num, ad_inc etc.
 
@@ -102,7 +102,7 @@ Talking about version control is beyond the scope of our discussion here.  But, 
 
 In both R and Python, we load packages to give us access to useful code written by someone else.  Packages allow us to easily read and manipulate data, explore data and carry out supervised learning tasks (such as fitting GLMs or gradient boosting models).  
 
-In Python it can be quite difficult to work with packages without using some kind of package management system.  That is because often only specific  versions of two different packages are compatible with each other.  For example ``pandas`` version 2.2 is not compatible with ``pandas`` 1.22.3 and prior  [@pandas_install].
+In Python it can be quite difficult to work with packages without using some kind of package management system.  That is because often only specific  versions of two different packages are compatible with each other.  For example ``pandas`` version 2.2 is not compatible with ``numpy`` 1.22.3 and prior  [@pandas_install].
 
 From practical experience, it is easier to work in R without using a package management system.  
 
