@@ -72,9 +72,11 @@ You are busy reviewing a project, and you come across a file `dt_train.RData`.  
 
 ## Naming variables
 
+Mainly.  Be consistent.
+
 Some languages (e.g. SAS) do not differentiate between lower and upper case.  Some (e.g. R and Python) do.  Coders in SAS can be inconsistent and get away with it.  When two similar datasets are exported fom SAS to R, a program that works with one, will not work with the other if the capitalisation is inconsistent.
 
-Consider the variable name for policyholder age.  You could use policyholderAge (camel case), PolicyholderAge (Pascal case), policyholder_age (snake case).
+Consider the variable name for policyholder age.  You could use policyholderAge (camel case), PolicyholderAge (Pascal case), policyholder_age (snake case).  Choose one and stick to it.
 
 Consider a data.table (in R) of data to be used for training.  You could call it ``train`` or ``dt_train`` or ``train_dt``.  The middle of these (``dt_train``) leads us to the idea that we might want the variable names of our objects to start with something which tells us what they are.
 
@@ -84,6 +86,11 @@ Sometimes we replace a feature with its rank.  Or its percentile. You can probab
 
 We often come across abreviations which are capitalised when used in a sentence (NCB for No Claims Bonus or VRN for Vehicle Registration Number).  Should we capitalize the variable names for these?
 
+When we deal with missing values we often guess what the missing value should be (impute).  Then, we create an indicator, which takes the value of 1 wherever we have imputed a value in place of missing data.  If ``policyholder_age`` is sometimes missing and we decide to use imputation to replace missing values and to use a missing value indicator, we need a name for the indicator.  We use ``policyholder_age_m``.
+
+Consider three types of claim (accidental damage (ad), fire or theft (ft) and personal injury (pi)) and two items of information about these claims, their number (num) and their incurred value (inc).  Our variable names can be; num_ad, num_ft, num_pi, inc_ad, ind_ft and inc_pi. Alternatively we can choose, ad_num, ad_inc etc.
+
+Some languages have style guides.  These can be useful, but the issues we come across tend to be detail which is not covered elsewhere.  Throughout our code, we don't aim to know what's right (even if there is such a thing), we try to be consistent.
 
 
 ## Version control
